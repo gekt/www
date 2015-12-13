@@ -35,7 +35,10 @@
             $record = geoip_record_by_addr($gi,$_SERVER['REMOTE_ADDR']);
             $code = geoip_country_code_by_addr($gi, $_SERVER['REMOTE_ADDR']);
             $pays = $record->country_name;
-            if (!in_array($code, array('FR', 'CH', 'BE', 'CA'), true)) {
+
+            $url = 'http://localhost:81/img/' . $code . '.png';
+            $headers = get_headers($url, 1);
+            if ($headers[0] == 'HTTP/1.1 404 Not Found') {
                 $code = "Unknown";
             }
         }
@@ -89,6 +92,9 @@
             </a>
             <a href="envoyer.php">
                 <img src="img/message.png" title="Envoyer un message" height="27" weight="30" >
+            </a>
+            <a href="changepass.php">
+                <img src="img/mdpchange.png" title="Changer de mot de passe" height="27" weight="30" >
             </a>
             <?php echo $boutonNews; ?>
             <div  class="player">Joueurs en ligne GTA: <?php echo $check ?></div>

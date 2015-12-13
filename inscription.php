@@ -22,7 +22,9 @@ if (isset($_POST['inscription']) && $_POST['inscription'] == 'Inscription') {
 
         if ($data[0] == 0) {
         $sql = 'INSERT INTO membre VALUES("", "'.mysql_real_escape_string($_POST['login']).'", "'.mysql_real_escape_string(md5($_POST['pass'])).'","0","0")';
+        $sql2 = 'INSERT INTO badge VALUES("'.mysql_real_escape_string($_POST['login']).'", "")';
         mysql_query($sql) or die('Erreur SQL !'.$sql.'<br />'.mysql_error());
+        mysql_query($sql2) or die('Erreur SQL !'.$sql2.'<br />'.mysql_error());
 
         session_start();
         $_SESSION['login'] = $_POST['login'];
