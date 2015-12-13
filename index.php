@@ -114,7 +114,10 @@ if (isset($_POST['connexion']) && $_POST['connexion'] == 'Connexion') {
         /* PHP OK */
         ?>
         <aside class="contenu">
-            <p></p>
+        <p><?php
+        // on inclut l'affichage de nos news
+        include ('news.php');
+        ?></p>
         </aside>
 
         <aside class="menu">

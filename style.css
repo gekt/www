@@ -94,6 +94,10 @@ margin-top: 170px;
     padding: 244px 0;
     left: 250px;
     right: 10px;
+    max-height: 13px;
+    overflow-y: auto;
+    word-wrap: break-word;
+    text-align: center;
 
 }
 
@@ -127,4 +131,9 @@ a:link {
     margin-top: -200px;
 
 
+}
+
+.news {
+
+    margin-top: 10px;
 }

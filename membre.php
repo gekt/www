@@ -111,6 +111,9 @@ geoip_close($gi);
     <a href="envoyer.php">
     <img src="img/message.png" title="Envoyer un message" height="27" weight="30" >
     </a>
+    <a href="insert_news.php">
+    <img src="img/news.png" title="Poster une news" height="27" weight="30" >
+    </a>
 
             <div  class="player">Joueurs en ligne GTA: <?php echo $check ?></div>
             <div  class="player">Joueurs en ligne PIXELMON: <?php echo $check2 ?></div>
