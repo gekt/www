@@ -24,5 +24,5 @@ header ('Location: membre.php');
 
 <?php
 //echo $donnees['nb_points'];
-echo $pseudo;
+//echo $pseudo;
 ?>

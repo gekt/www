@@ -63,7 +63,7 @@ geoip_close($gi);
  	while ($donnees = @mysql_fetch_array($reponse)) // On boucle pour afficher toutes les données et on met toutes données dans un tableau
  	{
 	?>
-	<p>Vos points <?php echo $donnees['nb_points'];?> !<a href="points.php"><img height="20" weight="30" src="img/plus.png"/></a></p>
+	<p>Vos points <?php echo $donnees['nb_points'];?> !<a href="points_add.php"><img height="20" weight="30" src="img/plus.png"/></a><a href="points_del.php"><img height="23" weight="30" src="img/moins.png"/></a></p>
 	<?php
  	}
  	//@mysql_close(); // On oubli pas de déconnecter la base de données
