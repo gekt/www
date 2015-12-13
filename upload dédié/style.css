@@ -1,0 +1,121 @@
+body {
+
+}
+
+nav {
+    display: inline-block;
+    width: 100%;
+    text-align: center;
+}
+
+nav ul {
+    list-style-type: none;
+}
+
+nav li {
+    display: inline-block;
+    margin-right: 15px;
+}
+
+nav a {
+    font-size: 1.3em;
+    padding-bottom: 3px;
+    text-decoration: none;
+}
+
+nav a:hover	{
+    color: #760001;
+    border-bottom: 3px solid #760001;
+    /*text-transform: uppercase;*/
+}
+
+
+.entete {
+    position: relative;
+    background-color: #706b64;
+    box-shadow: 0px 2px 5px #1c1a19;
+    border-radius: 5px;
+    padding: 25px 0;
+    color: white;
+    font-size: 0.9em;
+}
+
+form {
+
+	text-align: right;
+	margin-right: 20px;
+}
+
+input {
+	margin: 5px;
+}
+
+footer aside {
+
+	text-align: center;
+	padding: 25px 0;
+	color: white;
+    font-size: 0.9em;
+    position: relative;
+    background-color: #706b64;
+    box-shadow: 0px 2px 5px #1c1a19;
+    border-radius: 5px;
+}
+
+.menu {
+    position: relative;
+    background-color: #706b64;
+    box-shadow: 0px 2px 5px #1c1a19;
+    border-radius: 5px;
+    padding: 250px 0;
+    color: white;
+    font-size: 0.9em;
+    width: 200px;
+    margin-bottom: 50px;
+
+
+}
+
+footer {
+position: static;
+margin-top: 170px;
+
+}
+
+
+.contenu {
+	position: absolute;
+    background-color: #706b64;
+    box-shadow: 0px 2px 5px #1c1a19;
+    border-radius: 5px;
+    padding: 100px 0;
+    color: white;
+    font-size: 0.9em;
+    padding: 244px 0;
+    left: 250px;
+    right: 10px;
+
+}
+
+.player {
+
+	text-align: center;
+}
+
+.inscrire {
+
+	text-align: right;
+}
+
+a:visited {
+	text-decoration: none;
+	color: black;
+	border: none;
+
+}
+a:link {
+	text-decoration: none;
+	color: black;
+	border: none;
+
+}
