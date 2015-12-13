@@ -21,7 +21,7 @@ if (isset($_POST['inscription']) && $_POST['inscription'] == 'Inscription') {
         $data = mysql_fetch_array($req);
 
         if ($data[0] == 0) {
-        $sql = 'INSERT INTO membre VALUES("", "'.mysql_real_escape_string($_POST['login']).'", "'.mysql_real_escape_string(md5($_POST['pass'])).'","0")';
+        $sql = 'INSERT INTO membre VALUES("", "'.mysql_real_escape_string($_POST['login']).'", "'.mysql_real_escape_string(md5($_POST['pass'])).'","0","0")';
         mysql_query($sql) or die('Erreur SQL !'.$sql.'<br />'.mysql_error());
 
         session_start();
