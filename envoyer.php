@@ -17,7 +17,7 @@ if (isset($_POST['go']) && $_POST['go'] == 'Envoyer') {
 	@mysql_select_db ('espace_membres', $base);
 
 	// si tout a été bien rempli, on insère le message dans notre table SQL
-	$sql = 'INSERT INTO messages VALUES("", "'.$_SESSION['id'].'", "'.$_POST['destinataire'].'", "'.date("Y-m-d H:i:s").'", "'.mysql_escape_string($_POST['titre']).'", "'.mysql_escape_string($_POST['message']).'")';
+	$sql = 'INSERT INTO messages VALUES("", "'.$_SESSION['id'].'", "'.$_POST['destinataire'].'", "'.date("Y-m-d H:i:s").'", "'.mysql_escape_string($_POST['titre']).'", "'.mysql_escape_string($_POST['message']).'", "1")';
 	@mysql_query($sql) or die('Erreur SQL !'.$sql.'<br />'.mysql_error());
 
 	@mysql_close();

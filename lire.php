@@ -6,6 +6,8 @@ if (!isset($_SESSION['login'])) {
 	header ('Location: index.php');
 	exit();
 }
+
+$id_message = $_GET['id_message'];
 ?>
 
 <html>
@@ -44,9 +46,32 @@ else {
 	echo '<br /><br /><a href="supprimer.php?id_message=' , $_GET['id_message'] , '">Supprimer ce message</a>';
 	}
 	mysql_free_result($req);
-	mysql_close();
 }
 ?>
+
+<?php 
+	if (!isset($_GET['id_message']) || empty($_GET['id_message'])) {
+	echo '';
+	}
+	else {
+    	@mysql_connect("localhost", "root", ""); // Connexion à la base de données
+ 		@mysql_select_db("espace_membres"); // Sélection de la base de données
+		@mysql_query ("UPDATE messages SET isread='0' WHERE id='" . $id_message . "'"); // Requête SQL
+	}
+	mysql_close();
+?>
+
+<?php 
+
+
+?>
+
+
+
+
+
+
+
 <br /><br /><a href="deconnexion.php">Déconnexion</a>
 </body>
 </html>

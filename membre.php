@@ -7,12 +7,13 @@
         exit();
     }
 
+    include 'sessionid.php';
     include 'check.php';
     include 'nb_online.php';
     include 'resultatonline.php';
-    include 'sessionid.php';
     include 'badgecheck.php';
     include 'bouton_newsAdmin.php';
+    include 'm_received.php';            //pop up à la réception d'un message avec son (conflit avec les succès badge ATM)
     include("geoloc/geoipcity.inc");
     include("geoloc/geoipregionvars.php");
 
@@ -30,7 +31,6 @@
     <body>
 <?php
         $gi = geoip_open(realpath("geoloc/GeoLiteCity.dat"),GEOIP_STANDARD);
-
         if ($_SERVER['REMOTE_ADDR'] != '::1') {
             $record = geoip_record_by_addr($gi,$_SERVER['REMOTE_ADDR']);
             $code = geoip_country_code_by_addr($gi, $_SERVER['REMOTE_ADDR']);
@@ -95,6 +95,9 @@
             </a>
             <a href="changepass.php">
                 <img src="img/mdpchange.png" title="Changer de mot de passe" height="27" weight="30" >
+            </a>
+            <a href="vote.php">
+            <img src="img/vote.png" title="Voter pour le serv" height="27" weight="30" >
             </a>
             <?php echo $boutonNews; ?>
             <div  class="player">Joueurs en ligne GTA: <?php echo $check ?></div>
