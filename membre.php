@@ -17,7 +17,6 @@
     include("geoloc/geoipcity.inc");
     include("geoloc/geoipregionvars.php");
 
-    $_SESSION['id'] = $id;
     $pseudo =  $_SESSION['login'];
 ?>
 
@@ -62,7 +61,7 @@
 <?php
             }
 
-            $sql = 'SELECT titre, date, membre.login as expediteur, messages.id as id_message FROM messages, membre WHERE id_destinataire="'.$_SESSION['id'].'" AND id_expediteur=membre.id ORDER BY date DESC'; // on prépare une requete SQL cherchant tous les titres, les dates ainsi que l'auteur des messages pour le membre connecté
+            $sql = 'SELECT titre, date, membre.login as expediteur, messages.id as id_message FROM messages, membre WHERE id_destinataire="'.$id.'" AND id_expediteur=membre.id ORDER BY date DESC'; // on prépare une requete SQL cherchant tous les titres, les dates ainsi que l'auteur des messages pour le membre connecté
             $req = @mysql_query($sql) or die('Erreur SQL !<br />'.$sql.'<br />'.mysql_error()); // lancement de la requete SQL
             $nb = @mysql_num_rows($req);
 
