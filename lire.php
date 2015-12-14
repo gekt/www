@@ -6,6 +6,7 @@ if (!isset($_SESSION['login'])) {
 	header ('Location: index.php');
 	exit();
 }
+include 'sessionid.php';
 
 $id_message = $_GET['id_message'];
 ?>
@@ -28,7 +29,7 @@ else {
 	@mysql_select_db ('espace_membres', $base);
 
 	// on prépare une requete SQL selectionnant la date, le titre et l'expediteur du message que l'on souhaite lire, tout en prenant soin de vérifier que le message appartient bien au membre connecté
-	$sql = 'SELECT titre, date, message, membre.login as expediteur FROM messages, membre WHERE id_destinataire="'.$_SESSION['id'].'" AND id_expediteur=membre.id AND messages.id="'.$_GET['id_message'].'"';
+	$sql = 'SELECT titre, date, message, membre.login as expediteur FROM messages, membre WHERE id_destinataire="'.$id.'" AND id_expediteur=membre.id AND messages.id="'.$_GET['id_message'].'"';
 	// on lance cette requete SQL à MySQL
 	$req = @mysql_query($sql) or die('Erreur SQL !<br />'.$sql.'<br />'.mysql_error());
 	$nb = @mysql_num_rows($req);

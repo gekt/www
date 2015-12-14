@@ -51,15 +51,12 @@ $hidden = "false";
 			$connect->PHPScommand("give " . $player . " 42 64");
 			?>
 			<p>Merci pour votre vote !</p>
+			<script>var snd = new Audio("musique/spartiate.mp3"); // buffers automatically when created
+        	snd.play();</script>
 			<?php
 			$hidden = "hidden";
 		}
-		else {
-			?>
-			<p>Vous avez déja voté !</p>
-			<p>Vous pourrez re voter à <?php echo date("H:i:s", $time);?> </p>
-			<?php
-		}
+		else {}
 	}
 	$result = $connect->PHPSdisconnect();
 ?>

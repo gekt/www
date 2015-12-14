@@ -6,6 +6,7 @@ if (!isset($_SESSION['login'])) {
 	header ('Location: index.php');
 	exit();
 }
+include 'sessionid.php';
 
 // on teste si le formulaire a bien été soumis
 if (isset($_POST['go']) && $_POST['go'] == 'Envoyer') {
@@ -17,7 +18,7 @@ if (isset($_POST['go']) && $_POST['go'] == 'Envoyer') {
 	@mysql_select_db ('espace_membres', $base);
 
 	// si tout a été bien rempli, on insère le message dans notre table SQL
-	$sql = 'INSERT INTO messages VALUES("", "'.$_SESSION['id'].'", "'.$_POST['destinataire'].'", "'.date("Y-m-d H:i:s").'", "'.mysql_escape_string($_POST['titre']).'", "'.mysql_escape_string($_POST['message']).'", "1")';
+	$sql = 'INSERT INTO messages VALUES("", "'.$id.'", "'.$_POST['destinataire'].'", "'.date("Y-m-d H:i:s").'", "'.mysql_escape_string($_POST['titre']).'", "'.mysql_escape_string($_POST['message']).'", "1")';
 	@mysql_query($sql) or die('Erreur SQL !'.$sql.'<br />'.mysql_error());
 
 	@mysql_close();
@@ -43,7 +44,7 @@ $base = @mysql_connect ('localhost', 'root', '');
 @mysql_select_db ('espace_membres', $base);
 
 // on prépare une requete SQL selectionnant tous les login des membres du site en prenant soin de ne pas selectionner notre propre login, le tout, servant à alimenter le menu déroulant spécifiant le destinataire du message
-$sql = 'SELECT membre.login as nom_destinataire, membre.id as id_destinataire FROM membre WHERE id <> "'.$_SESSION['id'].'" ORDER BY login ASC';
+$sql = 'SELECT membre.login as nom_destinataire, membre.id as id_destinataire FROM membre WHERE id <> "'.$id.'" ORDER BY login ASC';
 // on lance notre requete SQL
 $req = @mysql_query($sql) or die('Erreur SQL !<br />'.$sql.'<br />'.mysql_error());
 $nb = @mysql_num_rows ($req);
